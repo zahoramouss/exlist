@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import'../Resources/resource.dart';
+import'../widgets/textfield.dart';
+import'../widgets/button.dart';
 class btn extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -10,13 +12,18 @@ class btn extends StatefulWidget {
 class btnstate extends State<btn> {
   double bheight;
   double bwidth;
+  bool log=false;
 
-  TextEditingController rm = TextEditingController();
-  login(context) {
+  TextEditingController user = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController passwordconfirm = TextEditingController();
+  TextEditingController companyname = TextEditingController();
+  login(context,bool log) {
     showBottomSheet<void>(
       context: context,
-      builder: (BuildContext context) {
-        return bottomsheet(emailcontroller: rm);
+      builder: (BuildContext context) {print(log);
+        return bottomsheet(emailcontroller: email,usercontroller: user,passwordcontroller: password,passwordconfirmcontroller: passwordconfirm,companynamecontroller: companyname,l:log);
       },
     );
   }
@@ -35,7 +42,6 @@ class btnstate extends State<btn> {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                //color: Colors.red,
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.width * .45),
                 child: Image.asset('assets/images/logo.png', scale: 8),
@@ -50,7 +56,7 @@ class btnstate extends State<btn> {
                     shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30)),
                     child: Text(
-                      'Login',
+                      str_login,
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
@@ -58,8 +64,10 @@ class btnstate extends State<btn> {
                       ),
                     ),
                     onPressed: () {
-                      //bottomsheet();
-                      login(context);
+                      setState(() {
+                        log=false;
+                      });
+                      login(context,log);
                     },
                   )),
               Container(
@@ -73,14 +81,16 @@ class btnstate extends State<btn> {
                         borderRadius: new BorderRadius.circular(30),
                         side: BorderSide(color: Color(0xFF80E1D1), width: 3)),
                     child: Text(
-                      'Register',
+                      str_register,
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
                         color: gren,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      login(context,true);
+                    },
                   ))
             ],
           ),
@@ -92,7 +102,12 @@ class btnstate extends State<btn> {
 
 class bottomsheet extends StatefulWidget {
   TextEditingController emailcontroller = TextEditingController();
-  bottomsheet({Key key, this.emailcontroller}) : super(key: key);
+  TextEditingController usercontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController passwordconfirmcontroller = TextEditingController();
+  TextEditingController companynamecontroller = TextEditingController();
+  bool l;
+  bottomsheet({Key key, this.emailcontroller,this.usercontroller,this.passwordcontroller,this.passwordconfirmcontroller,this.companynamecontroller,this.l}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return bottomsheetstate();
@@ -101,16 +116,15 @@ class bottomsheet extends StatefulWidget {
 
 class bottomsheetstate extends State<bottomsheet> {
 
-
   double bheight;
   double bwidth;
   @override
   Widget build(BuildContext context) {
-    bheight = MediaQuery.of(context).size.height * .069;
-    bwidth = MediaQuery.of(context).size.width * .85;
+    bheight = MediaQuery.of(context).size.height * .065;
+    bwidth = MediaQuery.of(context).size.width * .80;
     return  Scaffold(body:
       DecoratedBox(
-      decoration: BoxDecoration(color: gren),
+      decoration: BoxDecoration(color: backgroundgren),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(60.0), topRight: Radius.circular(40.0)),
@@ -143,110 +157,98 @@ class bottomsheetstate extends State<bottomsheet> {
             ),
             SingleChildScrollView(
               child: Center(
-                child: Column(
+                child: (widget.l)?
+                Column(
                   children: [
                     Container(
                       child: CircleAvatar(
                         backgroundColor: white,
-                        radius: 80,
+                        radius:65,
                         child:Align(
                           alignment: Alignment.center,
-                          child:Image.asset('assets/images/acc.png',scale: 4,),
+                          child:Image.asset('assets/images/acc.png',scale: 5,),
                           ),
                         )
                       ),
-                    Container(
-                      margin: EdgeInsets.only(top:MediaQuery.of(context).size.height*.10),
-                      height: bheight,
-                      width:bwidth,
-                      child:TextField(
-                        
-                        decoration: InputDecoration(
-                          prefixIcon:Icon(Icons.person,color: white) ,
-                            hintText: 'Name',
-                            hintStyle:TextStyle(
-                              color: white,
-                            ) ,
-                            enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                              borderSide: BorderSide(
-                                color:white,
-                                width: 3,
-                              ),
-                          )
-                        ),
-
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top:20),
-                      height: bheight,
-                      width:bwidth,
-                      child:TextField(
-
-                        decoration: InputDecoration(
-                            prefixIcon:Icon(Icons.email_rounded,color: white) ,
-                            hintText: 'Email',
-                            hintStyle:TextStyle(
-                              color: white,
-                            ) ,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                              borderSide: BorderSide(
-                                color:white,
-                                width: 3,
-                              ),
-                            )
-                        ),
-
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top:20),
-                      height: bheight,
-                      width:bwidth,
-                      child:TextField(
-
-                        decoration: InputDecoration(
-                            prefixIcon:Icon(Icons.lock_outline,color: white) ,
-                            hintText: 'Password',
-                            hintStyle:TextStyle(
-                              color: white,
-                            ) ,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                              borderSide: BorderSide(
-                                color:white,
-                                width: 3,
-                              ),
-                            )
-                        ),
-
-                      ),
-                    ),
+                      Container(child: Column(children: [],),),
+                    tfield(context,widget.usercontroller,Icon(Icons.person,color: white,),str_name,( MediaQuery.of(context).size.height*.075),),
+                    tfield(context,widget.companynamecontroller,Icon(Icons.supervisor_account_rounded,color: white,),str_companyname,15),
+                    tfield(context,widget.emailcontroller,Icon(Icons.email_rounded,color: white,),str_email,15),
+                    tfield(context,widget.passwordcontroller,Icon(Icons.lock_outline,color: white,),str_password,15),
+                    tfield(context,widget.passwordcontroller,Icon(Icons.lock_outline,color: white,),str_passwordconfirm,15),
                     Container(
                       margin: EdgeInsets.only(top:25),
                       width: bwidth,
                       height:bheight,
                       child:RaisedButton(
                         elevation: 0.0,
-                        color: Colors.white,
+                        color: white,
                         shape: RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(30),
                             side: BorderSide(color: white, width: 3)),
                         child: Text(
-                          'Register',
+                          str_register,
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF80E1D1),
+                            color: gren,
                           ),
                         ),
-                        onPressed: (){},
+                        onPressed: (){
+                          print(widget.l);
+                        },
                       ),
-                    )
+                    ),
+                    //button(context,(){regis();},str_register)
                   ],
-                ),
+                )
+                :Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top:( MediaQuery.of(context).size.height*.10) ),
+                        child: CircleAvatar(
+                          backgroundColor: white,
+                          radius:65,
+                          child:Align(
+                            alignment: Alignment.center,
+                            child:Image.asset('assets/images/acc.png',scale: 5,),
+                          ),
+                        )
+                    ),
+                    tfield(context,widget.emailcontroller,Icon(Icons.email_rounded,color: white,),str_email,( MediaQuery.of(context).size.height*.10),),
+                    tfield(context,widget.passwordcontroller,Icon(Icons.lock_outline,color: white,),str_password,15),
+                    Container(
+                      margin: EdgeInsets.only(top:30),
+                      width: bwidth,
+                      height:bheight,
+                      child:RaisedButton(
+                        elevation: 0.0,
+                        color: white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30),
+                            side: BorderSide(color: white, width: 3)),
+                        child: Text(
+                          str_login,
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                            color: gren,
+                          ),
+                        ),
+                        onPressed: (){
+                          print(widget.l);
+                        },
+                      ),
+                    ),
+                   Container(
+                     child: FlatButton(onPressed: (){}, child: Text(str_forgetpassword,style:TextStyle(
+                       fontSize: 25,
+                       fontWeight: FontWeight.bold,
+                       color: Colors.white70
+                     )))
+                   )
+                  ],
+                )
               ),
             ),
           ],
