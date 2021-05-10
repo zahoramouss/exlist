@@ -12,6 +12,7 @@ Widget tfield(context,TextEditingController txtedit, Icon icon,String hint,doubl
       decoration: InputDecoration(
           prefixIcon:icon ,
           hintText: hint,
+         
           hintStyle:TextStyle(
             color: white,
           ) ,
@@ -32,4 +33,41 @@ Widget tfield(context,TextEditingController txtedit, Icon icon,String hint,doubl
 
     ),
   );
+}
+Widget tfield2(context,TextEditingController cont,String hint,double margin){
+  double radius=MediaQuery.of(context).size.width*.35;
+  double corner=32;
+  double thick=4;
+  double h=MediaQuery.of(context).size.height*.07;
+  double w=MediaQuery.of(context).size.width*.7136;
+     return Container(
+    margin: EdgeInsets.only(top: margin),
+    width: w,
+    height: h,
+    child:TextField(
+      textAlign: TextAlign.center,
+      controller: cont,
+      decoration: InputDecoration(
+      hintText:hint,
+      hintStyle: TextStyle(
+        color: gren,
+      ),
+      focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(corner)),
+      borderSide: BorderSide(
+      color:gren,
+     width: thick,
+     ),),
+     enabledBorder: OutlineInputBorder(
+     borderRadius: BorderRadius.all(Radius.circular(corner)),
+      borderSide: BorderSide(
+     color:gren,
+      width: thick,
+         ),
+
+
+
+      )
+    )
+    ));
 }
