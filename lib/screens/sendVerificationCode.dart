@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../Resources/resource.dart';
 import '../widgets/textfield.dart';
-class resetpassword extends StatefulWidget{
+class sendverication extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-return resetpasswordstate();
+return sendvericationstate();
   }
 
 }
-class resetpasswordstate extends State<resetpassword>{
+class sendvericationstate extends State<sendverication>{
   double radius;
   double corner=32;
   double thick=4;
@@ -25,6 +25,18 @@ class resetpasswordstate extends State<resetpassword>{
     double bwith=MediaQuery.of(context).size.width*.7102;
     double bheight=MediaQuery.of(context).size.height*.07;
 return Scaffold(
+  extendBodyBehindAppBar: true,
+
+  appBar: AppBar(
+    elevation:0.0,
+    backgroundColor: Colors.transparent,
+    leading: IconButton(
+      onPressed: (){
+        Navigator.of(context).pushNamed('/home');
+      },
+      icon: Icon(Icons.arrow_back,color: bcolor,size:30),
+    ),
+  ),
   body: SingleChildScrollView(
     child: Center(
       child: Column(
@@ -65,7 +77,7 @@ return Scaffold(
               ),
             ),
             onPressed: (){
-
+            Navigator.of(context).pushNamed('/resetpassword');
             },
           ),
         ),

@@ -35,9 +35,9 @@ class btnstate extends State<btn> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Builder(builder: (context) {
-      return Container(
-        child: Center(
-          child: Column(
+         return Container(
+          child: Center(
+           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -122,15 +122,19 @@ class bottomsheetstate extends State<bottomsheet> {
   Widget build(BuildContext context) {
     bheight = MediaQuery.of(context).size.height * .065;
     bwidth = MediaQuery.of(context).size.width * .80;
-    return  Scaffold(body:
+    return
       DecoratedBox(
+
+        //color:Colors.redAccent,
       decoration: BoxDecoration(color: backgroundgren),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(60.0), topRight: Radius.circular(40.0)),
-        child:ListView(
+            topLeft: Radius.circular(20.0), topRight: Radius.circular(100.0)),
+
+          child:ListView(
           children: [
             Container(
+              //margin: EdgeInsets.only(right:200),
               child: Stack(
                 children: <Widget>[
                   Positioned(
@@ -241,7 +245,9 @@ class bottomsheetstate extends State<bottomsheet> {
                       ),
                     ),
                    Container(
-                     child: FlatButton(onPressed: (){}, child: Text(str_forgetpassword,style:TextStyle(
+                     child: FlatButton(onPressed: (){
+                       Navigator.of(context).pushNamed('/sendverfication_code');
+                     }, child: Text(str_forgetpassword,style:TextStyle(
                        fontSize: 25,
                        fontWeight: FontWeight.bold,
                        color: Colors.white70
@@ -260,6 +266,6 @@ class bottomsheetstate extends State<bottomsheet> {
 
 
 
-      )));
+       ));
   }
 }

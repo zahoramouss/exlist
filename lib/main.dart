@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import'screens/bottomsheet.dart';
 import'screens/sendVerificationCode.dart';
+import'screens/reset_password.dart';
 void main() {
   runApp(MaterialApp(
-    home:resetpassword() ,
+    home:btn() ,
+    routes: {
+      '/resetpassword':(BuildContext context)=>resetpassword(),
+      '/sendverfication_code':(BuildContext context)=>sendverication(),
+      '/home':(BuildContext context)=>btn(),
+    },
   ));
 }
 

@@ -14,18 +14,18 @@ Widget tfield(context,TextEditingController txtedit, Icon icon,String hint,doubl
           hintText: hint,
          
           hintStyle:TextStyle(
-            color: white,
+            color: tHint1,
           ) ,
           focusedBorder: OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(25.0)),
   borderSide: BorderSide(
-  color:white,
+  color:tBorder1,
   width: 3,
   ),),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(25.0)),
             borderSide: BorderSide(
-              color:white,
+              color:tBorder1,
               width: 3,
             ),
           )
@@ -55,13 +55,13 @@ Widget tfield2(context,TextEditingController cont,String hint,double margin){
       focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(corner)),
       borderSide: BorderSide(
-      color:gren,
+      color:tBorder2,
      width: thick,
      ),),
      enabledBorder: OutlineInputBorder(
      borderRadius: BorderRadius.all(Radius.circular(corner)),
       borderSide: BorderSide(
-     color:gren,
+     color:tBorder2,
       width: thick,
          ),
 
