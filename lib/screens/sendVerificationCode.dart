@@ -52,7 +52,7 @@ return Scaffold(
           child: CircleAvatar(
           radius: radius,
             backgroundColor: gren,
-            child: Image.asset('assets/images/email.png',scale: 1,),
+            child: Image.asset(url_image_mail,scale: 1,),
           ),
         ),
 

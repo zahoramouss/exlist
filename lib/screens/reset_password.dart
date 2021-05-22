@@ -40,7 +40,7 @@ class resetpassword extends StatefulWidget{
                child: CircleAvatar(
                  radius:radius ,
                  backgroundColor: circlecolor,
-                 child: Image.asset('assets/images/lock.png',scale:2),
+                 child: Image.asset(url_image_lock,scale:2),
                ),
              ),
               tfield2(context,code,str_code,margin2),

@@ -35,7 +35,7 @@ Widget tfield(context,TextEditingController txtedit, Icon icon,String hint,doubl
   );
 }
 Widget tfield2(context,TextEditingController cont,String hint,double margin){
-  double radius=MediaQuery.of(context).size.width*.35;
+ // double radius=MediaQuery.of(context).size.width*.35;
   double corner=32;
   double thick=4;
   double h=MediaQuery.of(context).size.height*.07;
@@ -70,4 +70,32 @@ Widget tfield2(context,TextEditingController cont,String hint,double margin){
       )
     )
     ));
+}
+Widget tfield3(context,TextEditingController cont,String hint,double width,double mgn){
+  return Container(
+    margin: EdgeInsets.only(top: mgn),
+    height:MediaQuery.of(context).size.height*.06,
+    width:width,
+    child: TextField(
+      controller: cont,
+      decoration: InputDecoration(
+        hintText: hint,
+        fillColor: Colors.white,
+        filled: true,
+
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          borderSide: BorderSide(
+          color:tBorder1,
+            width: 3,
+          ),),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          borderSide: BorderSide(
+           color:tBorder1,
+
+          ),),
+      ),
+    ),
+  );
 }

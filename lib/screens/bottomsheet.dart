@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import'../Resources/resource.dart';
 import'../widgets/textfield.dart';
-import'../widgets/button.dart';
+
 class btn extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -44,7 +44,7 @@ class btnstate extends State<btn> {
               Container(
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.width * .45),
-                child: Image.asset('assets/images/logo.png', scale: 8),
+                child: Image.asset(url_image_logo, scale: 8),
               ),
               Container(
                   margin: EdgeInsets.only(top: 60),
@@ -160,6 +160,7 @@ class bottomsheetstate extends State<bottomsheet> {
               width: 50,
             ),
             SingleChildScrollView(
+
               child: Center(
                 child: (widget.l)?
                 Column(
@@ -170,7 +171,7 @@ class bottomsheetstate extends State<bottomsheet> {
                         radius:65,
                         child:Align(
                           alignment: Alignment.center,
-                          child:Image.asset('assets/images/acc.png',scale: 5,),
+                          child:Image.asset(url_image_profile,scale: 5,),
                           ),
                         )
                       ),
@@ -259,7 +260,7 @@ class bottomsheetstate extends State<bottomsheet> {
             ),
           ],
         )
-         // margin: EdgeInsets.only(top: 200),
+
 
 
 
