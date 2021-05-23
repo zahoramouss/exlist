@@ -80,6 +80,10 @@ Widget tfield3(context,TextEditingController cont,String hint,double width,doubl
       controller: cont,
       decoration: InputDecoration(
         hintText: hint,
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          color: Colors.black,
+        ),
         fillColor: Colors.white,
         filled: true,
 
