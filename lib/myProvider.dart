@@ -40,6 +40,7 @@ class Myprovider with ChangeNotifier {
     File(("${directory.path}/output_file_name.xlsx"))
       ..createSync(recursive: true)
       ..writeAsBytesSync(fb);
+      notifyListeners();
   }
 
 
