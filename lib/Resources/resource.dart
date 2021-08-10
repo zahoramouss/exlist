@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 Color gren=Color(0xFF80E2D2);
 Color backgroundgren=Color(0xff80E1D1);
-Color backn=Color(0xffff6856);
 Color white=Colors.white;
 Color bcolor=Color(0xFF80E1D1);
 Color btcolor=Colors.white;

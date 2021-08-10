@@ -4,7 +4,7 @@ Widget tfield(context,TextEditingController txtedit, Icon icon,String hint,doubl
    double  bheight = MediaQuery.of(context).size.height * .067;
    double bwidth = MediaQuery.of(context).size.width * .80;
   return Container(
-    margin:EdgeInsets.only(top:margin) ,
+   margin:EdgeInsets.only(top:margin) ,
     height:bheight,
     width: bwidth,
     child:TextField(
