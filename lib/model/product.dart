@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 class Product{
   String name;
+<<<<<<< HEAD
   int id;
   double price;
   double quantity;
@@ -8,6 +9,14 @@ class Product{
   
   Product(this.name,this.id,this.price,this.quantity,this.mesure);
   //set(_id)=>this.id=_id;
+=======
+  double price;
+  double quantity;
+  int id;
+  String mesure;
+  Product(this.name,this.id,this.price,this.quantity,this.mesure);
+  set(_id)=>this.id=_id;
+>>>>>>> 18fcb91969b948ea113cc9c8f7587d73ba6284c1
   Map<String, dynamic> tomap() {
     var map = new Map<String, dynamic>();
     if (id != null) {

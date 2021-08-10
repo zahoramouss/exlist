@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import '../widgets/textfield.dart';
 import '../controller/databaseHelper.dart';
 import'../model/product.dart';
@@ -275,3 +276,6 @@ class home extends StatelessWidget{
 
   }
 }
+=======
+
+>>>>>>> 18fcb91969b948ea113cc9c8f7587d73ba6284c1
