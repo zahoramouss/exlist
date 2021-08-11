@@ -38,7 +38,9 @@ class home extends StatelessWidget{
   double bheight=MediaQuery.of(context).size.height*.06;
     return Scaffold(
       drawer: Drawer(
+
         child: Container(
+
           child:FlatButton(
             onPressed: (){
               Provider.of<Myprovider>(context,listen: false).save();
