@@ -47,9 +47,17 @@ class Myprovider with ChangeNotifier {
     sheetObject.cell(CellIndex.indexByString("B1")).value='ID';
     sheetObject.cell(CellIndex.indexByString("C1")).value='Price';
     sheetObject.cell(CellIndex.indexByString("D1")).value='Quantity';
-    sheetObject.insertColumn(8);
+    List<String> dataList = ["Google", "loves", "Flutter", "and", "Flutter", "loves", "Google"];
 
-    var fb=excel.save();
+    sheetObject.insertRowIterables(dataList, 2);
+    sheetObject.insertColumn(3);
+    for (int x = 2; x < l.length; x++){
+      sheetObject.insertRowIterables(l[x].tolist(), x);
+
+    }
+
+
+      var fb=excel.save();
 
       print(await _requestPermission(Permission.storage));
     if (await _requestPermission(Permission.storage)) {

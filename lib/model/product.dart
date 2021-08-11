@@ -32,6 +32,12 @@ class Product{
     this.mesure = map['mesure'];
 
   }
+  List tolist() {
+    var map = new List();
+    map=[ this.id, this.name, this.price, this.quantity ];
+
+   return map;
+  }
 
 
 
