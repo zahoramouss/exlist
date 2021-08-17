@@ -12,7 +12,7 @@ class btn extends StatefulWidget {
 class btnstate extends State<btn> {
   double bheight;
   double bwidth;
-  bool log=false;
+  bool log = false;
 
   TextEditingController user = TextEditingController();
   TextEditingController email = TextEditingController();

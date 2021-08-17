@@ -1,7 +1,7 @@
 
 import '../widgets/textfield.dart';
 import '../controller/databaseHelper.dart';
-import'../model/product.dart';
+import '../model/product.dart';
 import '../myProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -189,9 +189,6 @@ class home extends StatelessWidget{
                       // p.mesure=_chosenValue;
                        //p1.tomap();
                        Provider.of<Myprovider>(context,listen: false).add();
-
-
-
                      },
                      child: Text(str_add,style: TextStyle(
                        fontSize: 24,color: bcolor                     ),),
@@ -214,7 +211,9 @@ class home extends StatelessWidget{
               caption: 'Delete',
               color: ((index%2)==0)?gren:white,
               icon: Icons.delete,foregroundColor:  ((index%2)==0)?white:gren,
-              onTap: (){},
+              onTap: (){
+                       Provider.of<Myprovider>(context,listen: false).scanQR();
+              },
               ),
 
               ],

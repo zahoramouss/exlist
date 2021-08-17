@@ -4,7 +4,7 @@ import'package:path/path.dart';
 import 'dart:async';
 class databaseHelper{
   String productTable='product';
-  String name='nametable';
+  String name='name';
   String price='price';
   String quantity='quantity';
   String id='id';
@@ -32,8 +32,8 @@ oncreate(Database db, int newVersion)async{
 }
 // add product
   Future<int> addProduct(Product Product )  async{
-    var dbClient= await db;
-    var result =await dbClient.insert(productTable, Product.tomap());
+    var dbClient = await db;
+    var result = await dbClient.insert(productTable, Product.tomap());
     return result;
   }
 //delete product
